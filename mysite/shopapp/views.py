@@ -4,7 +4,13 @@ from django.shortcuts import render
 from timeit import default_timer
 
 def shop_index(request: HttpRequest):
-    context ={
+    context = {
         "time_running": default_timer(),
     }
     return render(request, 'shopapp/shop-index.html', context = context)
+
+def groups_list(request: HttpRequest):
+    context = {
+
+    }
+    return render(request, 'shopapp/groups-list.html', context = context)
