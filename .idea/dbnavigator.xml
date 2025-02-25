@@ -34,17 +34,18 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="156f592b-1776-4054-bbad-ae37f7a0075c" object-ref="schemas/main/tables/auth_permission" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="156f592b-1776-4054-bbad-ae37f7a0075c" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="156f592b-1776-4054-bbad-ae37f7a0075c" dataset="main.auth_user" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="156f592b-1776-4054-bbad-ae37f7a0075c" dataset="main.django_migrations" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="156f592b-1776-4054-bbad-ae37f7a0075c" dataset="main.auth_group" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="156f592b-1776-4054-bbad-ae37f7a0075c" dataset="main.sqlite_sequence" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="156f592b-1776-4054-bbad-ae37f7a0075c" dataset="main.auth_group_permissions" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="156f592b-1776-4054-bbad-ae37f7a0075c" dataset="main.shopapp_product" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="156f592b-1776-4054-bbad-ae37f7a0075c" dataset="main.auth_permission" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
