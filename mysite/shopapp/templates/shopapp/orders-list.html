@@ -14,6 +14,11 @@ Orders list
                 <p>Order by {% firstof order.user.first_name order.user.username %}</p>
                 <p>Promocode: <code>{{order.promocode}}</code></p>
                 <p>Delivery address: {{order.delivery_address}}</p>
+                <ul>
+                    {% for product in order.products.all %}
+                        <li>{{product.name}} for ${{product.price}}</li>
+                    {%endfor%}
+                </ul>
             </div>
         {% endfor %}
     {% else %}
