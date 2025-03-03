@@ -1,19 +1,32 @@
 from django.contrib import admin
-
-# Register your models here.
-
+from django.db.models import QuerySet
+from django.http import HttpRequest
 from .models import Product, Order
+from .admin_mixins import ExportAsCSVMixin
 
 class OrderInline(admin.TabularInline):
     model = Product.orders.through
 
+@admin.action(description="Archive products")
+def mark_archived(modeladmin: admin.ModelAdmin, request:HttpRequest, queryset:QuerySet):
+    queryset.update(archived=True)
+
+@admin.action(description="Unarchive products")
+def mark_unarchived(modeladmin: admin.ModelAdmin, request:HttpRequest, queryset:QuerySet):
+    queryset.update(archived=False)
+
 @admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(admin.ModelAdmin, ExportAsCSVMixin):
+    actions = [
+        mark_archived,
+        mark_unarchived,
+        "export_csv",
+    ]
     inlines = [
         OrderInline,
     ]
     #list_display = "pk", "name", "description", "price", "discount"
-    list_display = "pk", "name", "description_short", "price", "discount"
+    list_display = "pk", "name", "description_short", "price", "discount", "archived"
     list_display_links = "pk", "name"
     ordering = "pk",
     search_fields = "name", "description"
