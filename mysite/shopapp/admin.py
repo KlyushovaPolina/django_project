@@ -24,6 +24,11 @@ class ProductAdmin(admin.ModelAdmin):
         ("price_options",{
             "fields":("price", "discount"),
             "classes":("collapse","wide")
+        }),
+        ("extra_options",{
+            "fields":("archived",),
+            "classes":("collapse",),
+            "description":"Extra options.",
         })
     ]
 
