@@ -5,29 +5,36 @@ Groups list
 {% endblock %}
 
 {% block body %}
-<h1>Groups:</h1>
-<div>
-    {% if groups %}
-        <ul>
-            {% for group in groups %}
-            <li>
-                <div> {{group.name}}
-                    <ul>
-                        {% for permission in group.permissions.all %}
-                        <li>
-                            {{permission.name}}
-                            (<code>{{permission.codename}}</code>)
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        нет групп
-    {% endif %}
-</div>
+    <h1>Groups:</h1>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Create</button>
+        </form>
+    </div>
+    <div>
+        {% if groups %}
+            <ul>
+                {% for group in groups %}
+                <li>
+                    <div> {{group.name}}
+                        <ul>
+                            {% for permission in group.permissions.all %}
+                            <li>
+                                {{permission.name}}
+                                (<code>{{permission.codename}}</code>)
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            нет групп
+        {% endif %}
+    </div>
 {% endblock %}
 
 
